@@ -17,15 +17,12 @@ import pandas as pd
 import random
 import re
 import spacy
-import textacy
 import csv
 import sklearn
 
-from gmplot import gmplot
 from mapsplotlib import mapsplot as mplt
 from nltk.corpus import twitter_samples
 from nltk.tag import pos_tag_sents
-from pymprog import *
 from sklearn.cluster import DBSCAN
 from sklearn.neighbors import DistanceMetric
 from sklearn.feature_extraction.text import CountVectorizer
@@ -121,20 +118,19 @@ def new_clean_data(i,df_temp):
         sent+= temp + " "
     for temp in df_temp["user_mentions"].get(i):
         sent+= temp+ " "
-    for temp in df_temp["URL"].get(i):
-        sent+= temp + " "
+    if (df_temp['urls'][i]!='None'):
+        sent+= df_temp['urls'][i] + " "
     return sent
 
 import pandas as pd
-import geopandas as gpd
-import geopy
-from geopy.geocoders import Nominatim
-from geopy.extra.rate_limiter import RateLimiter
+# import geopandas as gpd
+# import geopy
+# from geopy.geocoders import Nominatim
+# from geopy.extra.rate_limiter import RateLimiter
 import matplotlib.pyplot as plt
-import plotly_express as px
-import tqdm
-from tqdm._tqdm_notebook import tqdm_notebook
-import reverse_geocoder as rg
+# import plotly_express as px
+
+# import reverse_geocoder as rg
 
 def reverse_geocoding(df):
     tweetsContentLocation = df.copy()["clean_data"]

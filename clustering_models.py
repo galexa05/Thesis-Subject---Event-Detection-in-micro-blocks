@@ -17,15 +17,12 @@ import pandas as pd
 import random
 import re
 import spacy
-import textacy
 import csv
 import sklearn
 
-from gmplot import gmplot
 from mapsplotlib import mapsplot as mplt
 from nltk.corpus import twitter_samples
 from nltk.tag import pos_tag_sents
-from pymprog import *
 from sklearn.cluster import DBSCAN
 from sklearn.neighbors import DistanceMetric
 from sklearn.feature_extraction.text import CountVectorizer
@@ -51,8 +48,8 @@ def getTfIdf(clean_train,windows_corpus,ngram1,ngram2,mindf,maxdf):
     if (mindf==0):
         minimum = 1
     else:
-#         minimum = max(int(windows_corpus * 0.0025), 10)
-        minimum = 5
+        minimum = max(int(windows_corpus * 0.0025), 10)
+#         minimum = 5
     if (maxdf==0):
         maximum = 1.0
     else:

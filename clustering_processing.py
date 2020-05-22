@@ -12,20 +12,18 @@ import json
 
 import hdbscan
 import nltk
+
 import numpy as np
 import pandas as pd
 import random
 import re
 import spacy
-import textacy
 import csv
 import sklearn
 
-from gmplot import gmplot
 from mapsplotlib import mapsplot as mplt
 from nltk.corpus import twitter_samples
 from nltk.tag import pos_tag_sents
-from pymprog import *
 from sklearn.cluster import DBSCAN
 from sklearn.neighbors import DistanceMetric
 from sklearn.feature_extraction.text import CountVectorizer
